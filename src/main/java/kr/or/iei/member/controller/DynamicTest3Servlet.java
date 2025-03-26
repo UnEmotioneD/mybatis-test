@@ -30,6 +30,7 @@ public class DynamicTest3Servlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -43,8 +44,8 @@ public class DynamicTest3Servlet extends HttpServlet {
 		MemberService service = new MemberService();
 		ArrayList<Member> list = service.selDynamicTest3(member);
 
-		for (int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i).toString());
+		for (Member element : list) {
+			System.out.println(element.toString());
 		}
 	}
 
@@ -52,6 +53,7 @@ public class DynamicTest3Servlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doGet(request, response);
